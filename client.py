@@ -1,5 +1,6 @@
 import socket
 import threading
+from colored import fore, back, style
 
 # Choosing Nickname
 nickname = input("Choose your nickname: ")
@@ -18,7 +19,7 @@ def receive():
             if message == 'NICK':
                 client.send(nickname.encode('ascii'))
             else:
-                print("--#~"message)
+                print(fore.LIGHT_BLUE + back.RED + style.BOLD + "--#~" + message +  style.RESET)
         except:
             # Close Connection When Error
             print("An error occured!")
